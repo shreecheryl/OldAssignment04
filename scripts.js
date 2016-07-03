@@ -11,7 +11,6 @@ var Dog = function() {};
 */
 // STEP 3
 /*
-var kuber = new Cat();   // ???
 var marley = new Dog();
 */
 // STEP 4
@@ -60,27 +59,30 @@ window.console.log(kuber.speak());
 */
 // STEP 9
 
-function Animal() {
-    type = "cat";
-    breed = "Maine Coon";
-    color = "black";
-    height = "14 in";
-    length = "20 in";
-    checkType = function() {
+ var Animal = function() {
+    var type = "cat";
+    var breed = "Maine Coon";
+    var color = "black";
+    var height = "14 in";
+    var length = "20 in";
+    this.checkType = function() {
         if (type == "dog") {
-        type = "dog";
-    } else {
-        type = "cat";
+            var _type =  "dog";
+        } else {
+            var _type = "cat";
+        }
+    return _type;
     }
-    return type;
-    };
 }
 Animal.prototype.speak = function() {
-    window.console.log("The " + checkType() + " has made a noise.")
+    window.console.log("The " + this.checkType() + " has made a noise!")
 }
 var kuber = new Animal();
 kuber.speak();
- 
+
+
+
+
 
 
 
