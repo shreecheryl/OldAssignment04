@@ -59,25 +59,50 @@ window.console.log(kuber.speak());
 */
 // STEP 9
 /*
- var Animal = function() {
-    var type = "cat";
-    var breed = "Maine Coon";
-    var color = "black";
-    var height = "14 in";
-    var length = "20 in";
-    this.checkType = function() {   // not happy with this since it is privileged not private
-        if (type == "dog") {
-            return "dog";
-        } else {
-            return "cat";
+     // option a: checkType is privileged 
+     var Animal = function() {
+        var type = "cat";
+        var breed = "Maine Coon";
+        var color = "black";
+        var height = "14 in";
+        var length = "20 in";
+        this.checkType = function() {   // not happy with this since it is privileged not private
+            if (type == "dog") {
+                return "dog";
+            } else {
+                return "cat";
+            }
         }
     }
-}
-Animal.prototype.speak = function() {
-    window.console.log("The " + this.checkType() + " has made a noise!")
-}
-var kuber = new Animal();
-kuber.speak();
+    Animal.prototype.speak = function() {
+        window.console.log("The " + this.checkType() + " has made a noise!")
+    }
+    var kuber = new Animal();
+    kuber.speak();
+*/
+/*
+    // option b: checkType is private
+    var Animal = function() {
+        var type = "cat";
+        var breed = "Maine Coon";
+        var color = "black";
+        var height = "14 in";
+        var length = "20 in";
+        var checkType = function() {
+            if (type == "dog") {
+                return "dog";
+            } else {
+                return "cat";
+            }
+        }
+        return checkType();
+    }
+    Animal.prototype.speak = function() {
+        window.console.log("The " + Animal() + " has made a noise!")
+    }
+    
+    var kuber = new Animal();
+    kuber.speak();
 */
 // STEP 10
 /*
